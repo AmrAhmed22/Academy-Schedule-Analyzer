@@ -92,6 +92,18 @@
         }
 
 
+        //4.2
+        private static void ReverseSessionNames(string[] names)
+        {
+            string[] reversedCopy = new string[names.Length];
+            Array.Copy(names, reversedCopy, names.Length);
+            Array.Reverse(reversedCopy);
+
+            Console.WriteLine("Reversed session names:");
+            foreach (string name in reversedCopy)
+                Console.WriteLine(name);
+        }
+
 
 
     }
