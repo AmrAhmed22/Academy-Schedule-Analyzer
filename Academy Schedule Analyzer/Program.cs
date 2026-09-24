@@ -28,5 +28,30 @@
 
 
         }
+
+
+
+
+        // Part 2: Display all sessions
+
+        private static void DisplaySessions(string[] names, DateTime[] dates, int[] durations)
+        {
+            for (int i = 0; i < names.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}. {names[i]}");
+                DisplaySessionDetails(i, names, dates, durations);
+                Console.WriteLine();
+            }
+        }
+
+        private static void DisplaySessionDetails(int index, string[] names, DateTime[] dates, int[] durations)
+        {
+            Console.WriteLine($"Date: {dates[index]:dd MMMM yyyy}");
+            Console.WriteLine($"Start Time: {dates[index]:hh:mm tt}");
+            Console.WriteLine($"Duration: {durations[index]} minutes");
+        }
+
+    
+
     }
 }
