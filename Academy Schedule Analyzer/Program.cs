@@ -73,5 +73,26 @@
             return index;
         }
 
+
+
+
+        // Part 4: Array methods practice
+       
+
+        //4.1
+        private static void SortSessionNames(string[] names)
+        {
+            string[] sortedCopy = new string[names.Length];
+            Array.Copy(names, sortedCopy, names.Length);
+            Array.Sort(sortedCopy);
+
+            Console.WriteLine("Sorted session names:");
+            foreach (string name in sortedCopy)
+                Console.WriteLine(name);
+        }
+
+
+
+
     }
 }
