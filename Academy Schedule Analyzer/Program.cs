@@ -106,5 +106,20 @@
 
 
 
+        //4.3
+        private static void FindSessionIndex(string[] names, string sessionName)
+        {
+            int index = Array.IndexOf(names, sessionName);
+            Console.WriteLine(index == -1 ? "Session not found." : $"Index: {index}");
+        }
+
+        //4.4
+        private static void CheckSessionExists(string[] names, string sessionName)
+        {
+            bool exists = Array.Exists(names, n=>n == sessionName);
+            Console.WriteLine(exists ? "Session exists." : "Session does not exist.");
+        }
+
+
     }
 }
