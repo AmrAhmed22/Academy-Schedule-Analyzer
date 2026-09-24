@@ -51,7 +51,27 @@
             Console.WriteLine($"Duration: {durations[index]} minutes");
         }
 
-    
+
+
+
+        // Part 3: Search for a session
+      
+
+        // return the index of the found session if we need it in the future.
+        private static int SearchSession(string[] names, DateTime[] dates, int[] durations, string sessionName)
+        {
+            int index = Array.IndexOf(names, sessionName);
+
+            if (index == -1)
+            {
+                Console.WriteLine("Session not found.");
+                return -1;
+            }
+
+            Console.WriteLine(names[index]);
+            DisplaySessionDetails(index, names, dates, durations);
+            return index;
+        }
 
     }
 }
