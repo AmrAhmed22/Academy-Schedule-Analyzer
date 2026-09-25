@@ -155,6 +155,73 @@
         }
 
 
+        // Part 5: Duration analysis
+
+        private static int GetTotalDuration(int[] durations)
+        {
+            int total = 0;
+
+            for (int i = 0; i < durations.Length; i++)
+                total += durations[i];
+
+            return total;
+        }
+
+        private static double GetAverageDuration(int[] durations)
+        {
+            return (double)GetTotalDuration(durations) / durations.Length;
+        }
+
+        private static int GetShortestDuration(int[] durations)
+        {
+            int shortest = durations[0];
+
+            for (int i = 1; i < durations.Length; i++)
+                if (durations[i] < shortest)
+                    shortest = durations[i];
+
+            return shortest;
+        }
+
+        private static int GetLongestDuration(int[] durations)
+        {
+            int longest = durations[0];
+
+            for (int i = 1; i < durations.Length; i++)
+                if (durations[i] > longest)
+                    longest = durations[i];
+
+            return longest;
+        }
+
+
+        private static void opeartion(int[] durations)
+        {
+
+            int[] sortedCopy = new int[durations.Length];
+            Array.Copy(durations, sortedCopy, durations.Length);
+            Array.Sort(sortedCopy);
+
+            Console.WriteLine("Sorted durations:");
+            foreach (int d in sortedCopy)
+                Console.WriteLine(d);
+
+
+
+        }
+
+        private static void DisplayDurations(int[] durations)
+        {
+            Console.WriteLine($"Total Duration: {GetTotalDuration(durations)} minutes");
+            Console.WriteLine($"Average Duration: {GetAverageDuration(durations):0} minutes");
+            Console.WriteLine($"Shortest Duration: {GetShortestDuration(durations)} minutes");
+            Console.WriteLine($"Longest Duration: {GetLongestDuration(durations)} minutes");
+
+            opeartion(durations);
+
+
+        }
+
 
 
 
