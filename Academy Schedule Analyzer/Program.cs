@@ -1,4 +1,6 @@
-﻿namespace Academy_Schedule_Analyzer
+﻿using System.Globalization;
+
+namespace Academy_Schedule_Analyzer
 {
     internal class Program
     {
@@ -224,9 +226,36 @@
 
 
 
+        // Part 6: supporting functions
 
 
+        private static DateTime GetSessionEndTime(DateTime start, int durationMinutes)
+        {
+            return start.AddMinutes(durationMinutes);
+        }
 
+        private static DateTime ReadSessionDate()
+        {
+            const string format = "yyyy-MM-dd HH:mm";
+
+            while (true)
+            {
+                Console.Write($"Enter date ({format}): ");
+                string? input = Console.ReadLine();
+
+                bool isValid = DateTime.TryParseExact(
+                    input,
+                    format,
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None,
+                    out DateTime result);
+
+                if (isValid)
+                    return result;
+
+                Console.WriteLine("Invalid date. Use the exact format yyyy-MM-dd HH:mm.");
+            }
+        }
 
 
 
