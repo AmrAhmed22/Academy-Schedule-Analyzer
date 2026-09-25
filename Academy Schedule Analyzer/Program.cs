@@ -120,6 +120,58 @@
             Console.WriteLine(exists ? "Session exists." : "Session does not exist.");
         }
 
+        //4.5
+        private static void FindSessionByCondition(string[] names, string keyword)
+        {
+            string? found = Array.Find(names, n => n.Contains(keyword));
+            Console.WriteLine(found != null ? $"Found: {found}" : "No matching session found.");
+        }
+
+        //4.6
+
+
+        private static void FindSessionIndexByCondition(string[] names, string keyword)
+        {
+            int index = Array.FindIndex(names, n => n.Contains(keyword));
+            Console.WriteLine(index != -1 ? $"Index: {index}" : "No matching session found.");
+        }
+
+        //4.7
+        private static void DemonstrateArrayCopy(string[] names)
+        {
+            string[] copy = new string[names.Length];
+            Array.Copy(names, copy, names.Length);
+
+            if (copy.Length > 0)
+                copy[0] = "MODIFIED SESSION (copy only)";
+
+            Console.WriteLine("Original array:");
+            foreach (string name in names)
+                Console.WriteLine(name);
+
+            Console.WriteLine("Copied array:");
+            foreach (string name in copy)
+                Console.WriteLine(name);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }
