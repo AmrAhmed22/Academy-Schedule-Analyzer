@@ -474,7 +474,28 @@ namespace Academy_Schedule_Analyzer
         }
 
 
+        // Part 13: date formatting
 
+
+        private static void ShowDateFormats(string[] names, DateTime[] dates)
+        {
+            Console.Write("Enter session name: ");
+            string sessionName = Console.ReadLine() ?? string.Empty;
+
+            int index = Array.IndexOf(names, sessionName);
+            if (index == -1)
+            {
+                Console.WriteLine("Session not found.");
+                return;
+            }
+
+            DateTime date = dates[index];
+            Console.WriteLine(date.ToString("yyyy-MM-dd"));
+            Console.WriteLine(date.ToString("dd/MM/yyyy"));
+            Console.WriteLine(date.ToString("dd MMMM yyyy"));
+            Console.WriteLine(date.ToString("dddd, dd MMMM yyyy"));
+            Console.WriteLine(date.ToString("hh:mm tt"));
+        }
 
 
 
