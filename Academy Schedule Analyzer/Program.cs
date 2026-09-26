@@ -260,6 +260,102 @@ namespace Academy_Schedule_Analyzer
 
 
 
+        // Part 7: ref, out, reference type without ref
+
+
+        private static void IncrementValue(ref int value)
+        {
+            value += 10;
+        }
+
+        private static void DemonstrateRef()
+        {
+            int value = 5;
+            Console.WriteLine($"Before: {value}");
+            IncrementValue(ref value);
+            Console.WriteLine($"After: {value}");
+        }
+
+        private static bool TryGetSessionInfo(string[] names, int[] durations, string sessionName, out int index, out int duration)
+        {
+            index = Array.IndexOf(names, sessionName);
+
+            if (index == -1)
+            {
+                duration = 0;
+                return false;
+            }
+
+            duration = durations[index];
+            return true;
+        }
+
+        private static void DemonstrateOut(string[] names, int[] durations)
+        {
+            Console.Write("Enter session: ");
+            string sessionName = Console.ReadLine() ?? string.Empty;
+
+            if (TryGetSessionInfo(names, durations, sessionName, out int index, out int duration))
+            {
+                Console.WriteLine($"Index: {index}");
+                Console.WriteLine($"Duration: {duration} minutes");
+            }
+            else
+            {
+                Console.WriteLine("Session not found.");
+            }
+        }
+
+        private static void change_element(string[] names)
+        {
+
+            if (names.Length > 0)
+                names[0] = "CHANGED (no ref keyword used)";
+
+        }
+        private static void ReferenceTypeWithoutRef(string[] names)
+        {
+
+            Console.WriteLine("Before calling function:");
+            foreach (string name in names)
+                Console.WriteLine(name);
+
+
+            change_element(names);
+
+
+
+            Console.WriteLine("After calling function (element changed with no ref):");
+            foreach (string name in names)
+                Console.WriteLine(name);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
