@@ -355,6 +355,35 @@ namespace Academy_Schedule_Analyzer
         }
 
 
+        // Part 9: session date details
+
+        private static void ShowSessionDateDetails(string[] names, DateTime[] dates, int[] durations)
+        {
+            Console.Write("Enter session name: ");
+            string sessionName = Console.ReadLine() ?? string.Empty;
+
+            int index = Array.IndexOf(names, sessionName);
+            if (index == -1)
+            {
+                Console.WriteLine("Session not found.");
+                return;
+            }
+
+            DateTime date = dates[index];
+            int duration = durations[index];
+            DateTime endTime = GetSessionEndTime(date, duration);
+
+            Console.WriteLine($"Session: {names[index]}");
+            Console.WriteLine($"Date: {date:dd MMMM yyyy}");
+            Console.WriteLine($"Day: {date.DayOfWeek}");
+            Console.WriteLine($"Year: {date.Year}");
+            Console.WriteLine($"Month: {date.Month}");
+            Console.WriteLine($"Day Number: {date.Day}");
+            Console.WriteLine($"Start Time: {date:hh:mm tt}");
+            Console.WriteLine($"Duration: {duration} minutes");
+            Console.WriteLine($"End Time: {endTime:hh:mm tt}");
+        }
+
 
 
 
