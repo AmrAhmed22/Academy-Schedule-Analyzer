@@ -30,7 +30,157 @@ namespace Academy_Schedule_Analyzer
 
 
 
+
+
+            int option;
+
+            do
+            {
+                PrintMenu();
+                option = ReadMenuOption();
+                Console.WriteLine();
+
+                switch (option)
+                {
+                    case 1:
+                        DisplaySessions(sessionNames, sessionDates, sessionDurations);
+                        break;
+                    case 2:
+                        Console.Write("Enter session name: ");
+                        SearchSession(sessionNames, sessionDates, sessionDurations, Console.ReadLine() ?? string.Empty);
+                        break;
+                    case 3:
+                        SortSessionNames(sessionNames);
+                        break;
+                    case 4:
+                        ReverseSessionNames(sessionNames);
+                        break;
+                    case 5:
+                        Console.Write("Enter session name: ");
+                        FindSessionIndex(sessionNames, Console.ReadLine() ?? string.Empty);
+                        break;
+                    case 6:
+                        Console.Write("Enter session name: ");
+                        CheckSessionExists(sessionNames, Console.ReadLine() ?? string.Empty);
+                        break;
+                    case 7:
+                        Console.Write("Enter keyword: ");
+                        FindSessionByCondition(sessionNames, Console.ReadLine() ?? string.Empty);
+                        break;
+                    case 8:
+                        Console.Write("Enter keyword: ");
+                        FindSessionIndexByCondition(sessionNames, Console.ReadLine() ?? string.Empty);
+                        break;
+                    case 9:
+                        DemonstrateArrayCopy(sessionNames);
+                        break;
+                    case 10:
+                        DisplayDurations(sessionDurations);
+                        break;
+                    case 11:
+                        ShowSessionDateDetails(sessionNames, sessionDates, sessionDurations);
+                        break;
+                    case 12:
+                        ShowPastAndUpcomingSessions(sessionNames, sessionDates);
+                        break;
+                    case 13:
+                        FindNextSession(sessionNames, sessionDates);
+                        break;
+                    case 14:
+                        CompareSessionDates(sessionNames, sessionDates);
+                        break;
+                    case 15:
+                        ShowDateFormats(sessionNames, sessionDates);
+                        break;
+                    case 16:
+                        DateTime validDate = ReadSessionDate();
+                        Console.WriteLine($"Accepted date: {validDate}");
+                        break;
+                    case 17:
+                        SelectSessionByIndex(sessionNames, sessionDates, sessionDurations);
+                        break;
+                    case 18:
+                        ValidateDurationInput();
+                        break;
+                    case 19:
+                        DemonstrateRef();
+                        break;
+                    case 20:
+                        DemonstrateOut(sessionNames, sessionDurations);
+                        break;
+                    case 21:
+                        ReferenceTypeWithoutRef(sessionNames);
+                        break;
+                    case 22:
+                        DemonstrateParams();
+                        break;
+                    case 23:
+                        Console.WriteLine(BuildReportUsingString(sessionNames, sessionDates, sessionDurations));
+                        break;
+                    case 24:
+                        Console.WriteLine(BuildReportUsingStringBuilder(sessionNames, sessionDates, sessionDurations));
+                        break;
+                    case 0:
+                        Console.WriteLine("Exiting...");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option.");
+                        break;
+                }
+
+                Console.WriteLine();
+            } while (option != 0);
+
+
         }
+
+
+
+
+
+
+
+
+
+
+
+
+        // Menu
+
+        private static void PrintMenu()
+        {
+            Console.WriteLine("===================================");
+            Console.WriteLine("Academy Schedule Analyzer");
+            Console.WriteLine("===================================");
+            Console.WriteLine("1. Display all sessions");
+            Console.WriteLine("2. Search for a session");
+            Console.WriteLine("3. Sort session names");
+            Console.WriteLine("4. Reverse session names");
+            Console.WriteLine("5. Find session index");
+            Console.WriteLine("6. Check if session exists");
+            Console.WriteLine("7. Find session by condition (Array.Find)");
+            Console.WriteLine("8. Find session index by condition (Array.FindIndex)");
+            Console.WriteLine("9. Demonstrate Array.Copy independence");
+            Console.WriteLine("10. Show duration statistics");
+            Console.WriteLine("11. Show session date details");
+            Console.WriteLine("12. Show past and upcoming sessions");
+            Console.WriteLine("13. Find next session");
+            Console.WriteLine("14. Compare two session dates");
+            Console.WriteLine("15. Show date formats for a session");
+            Console.WriteLine("16. Read and validate a custom date");
+            Console.WriteLine("17. Select session by index");
+            Console.WriteLine("18. Validate session duration");
+            Console.WriteLine("19. Demonstrate ref parameter");
+            Console.WriteLine("20. Demonstrate out parameter");
+            Console.WriteLine("21. Demonstrate reference type without ref");
+            Console.WriteLine("22. Demonstrate params keyword");
+            Console.WriteLine("23. Generate report using string");
+            Console.WriteLine("24. Generate report using StringBuilder");
+            Console.WriteLine("0. Exit");
+        }
+
+
+
 
 
 
