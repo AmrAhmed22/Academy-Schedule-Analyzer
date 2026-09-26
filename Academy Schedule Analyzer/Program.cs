@@ -438,6 +438,40 @@ namespace Academy_Schedule_Analyzer
 
 
 
+        // Part 12: find the next session
+
+
+        private static void FindNextSession(string[] names, DateTime[] dates)
+        {
+            DateTime now = DateTime.Now;
+            int nextIndex = -1;
+            DateTime nearestDate = DateTime.MaxValue;
+
+            for (int i = 0; i < dates.Length; i++)
+            {
+                if (dates[i] > now && dates[i] < nearestDate)
+                {
+                    nearestDate = dates[i];
+                    nextIndex = i;
+                }
+            }
+
+            if (nextIndex == -1)
+            {
+                Console.WriteLine("No upcoming sessions.");
+                return;
+            }
+
+            TimeSpan remaining = dates[nextIndex] - now;
+
+            Console.WriteLine("Next Session:");
+            Console.WriteLine(names[nextIndex]);
+            Console.WriteLine($"{dates[nextIndex]:dd MMMM yyyy}");
+            Console.WriteLine($"{dates[nextIndex]:hh:mm tt}");
+            Console.WriteLine("Time Remaining:");
+            Console.WriteLine($"{remaining.Days} days");
+            Console.WriteLine($"{remaining.Hours} hours");
+        }
 
 
 
