@@ -549,5 +549,66 @@ namespace Academy_Schedule_Analyzer
 
 
 
+        // Part 17  Throw an Exception 
+
+        private static void ValidateDuration(int duration)
+        {
+            if (duration <= 0)
+                throw new ArgumentException("Duration must be greater than zero.");
+        }
+
+
+        // Part 18 finally
+
+        private static void ValidateDurationInput()
+        {
+            Console.Write("Enter duration: ");
+            string? input = Console.ReadLine();
+
+            try
+            {
+                if (!int.TryParse(input, out int duration))
+                {
+                    Console.WriteLine("Invalid duration format.");
+                    return;
+                }
+
+                ValidateDuration(duration);
+                Console.WriteLine("Duration accepted.");
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Input operation finished.");
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
