@@ -334,7 +334,25 @@ namespace Academy_Schedule_Analyzer
 
 
 
+        // Part 8: params
 
+
+        private static int CalculateTotalDuration(params int[] durations)
+        {
+            int total = 0;
+
+            for (int i = 0; i < durations.Length; i++)
+                total += durations[i];
+
+            return total;
+        }
+
+        private static void DemonstrateParams()
+        {
+            Console.WriteLine($"Total: {CalculateTotalDuration(120, 180)} minutes");
+            Console.WriteLine($"Total: {CalculateTotalDuration(120, 180, 240)} minutes");
+            Console.WriteLine($"Total: {CalculateTotalDuration(60, 90, 120, 180, 240)} minutes");
+        }
 
 
 
