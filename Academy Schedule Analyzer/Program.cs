@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Text;
 
 namespace Academy_Schedule_Analyzer
 {
@@ -588,7 +589,32 @@ namespace Academy_Schedule_Analyzer
 
 
 
+        // Part 19 & 20: report generation
 
+        private static string BuildReportUsingString(string[] names, DateTime[] dates, int[] durations)
+        {
+            string result = "";
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                result += $"{names[i]} - {dates[i]:dd/MM/yyyy hh:mm tt} - {durations[i]} minutes\n";
+            }
+
+            return result;
+        }
+
+        private static string BuildReportUsingStringBuilder(string[] names, DateTime[] dates, int[] durations)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                sb.AppendLine($"{names[i]} - {dates[i]:dd/MM/yyyy hh:mm tt} - {durations[i]} minutes");
+            }
+
+            return sb.ToString();
+
+        }
 
 
 
