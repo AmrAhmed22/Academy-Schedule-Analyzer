@@ -386,15 +386,55 @@ namespace Academy_Schedule_Analyzer
 
 
 
+        // Part 10: date difference
+
+
+
+        private static void CompareSessionDates(string[] names, DateTime[] dates)
+        {
+            Console.Write("First Session: ");
+            string first = Console.ReadLine() ?? string.Empty;
+            Console.Write("Second Session: ");
+            string second = Console.ReadLine() ?? string.Empty;
+
+            int firstIndex = Array.IndexOf(names, first);
+            int secondIndex = Array.IndexOf(names, second);
+
+            if (firstIndex == -1 || secondIndex == -1)
+            {
+                Console.WriteLine("One or both sessions were not found.");
+                return;
+            }
+
+            TimeSpan difference = dates[secondIndex] - dates[firstIndex];
+
+            if (difference < TimeSpan.Zero)
+                difference = difference.Negate(); //if negative it will turn it to postive .
+
+            Console.WriteLine("Difference:");
+            Console.WriteLine($"{difference.Days} days");
+            Console.WriteLine($"{(int)difference.TotalHours} hours");
+        }
 
 
 
 
 
+        // Part 11: past and upcoming sessions
 
 
 
+            private static void ShowPastAndUpcomingSessions(string[] names, DateTime[] dates)
+        {
+            DateTime now = DateTime.Now;
 
+            for (int i = 0; i < names.Length; i++)
+            {
+                string status = dates[i] < now ? "Past" : "Upcoming";
+
+                Console.WriteLine($"{names[i]} {status}");
+            }
+        }
 
 
 
