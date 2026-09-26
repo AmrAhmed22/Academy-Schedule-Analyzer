@@ -521,6 +521,29 @@ namespace Academy_Schedule_Analyzer
         }
 
 
+        // Part 16: invalid array index handling
+
+        private static void SelectSessionByIndex(string[] names, DateTime[] dates, int[] durations)
+        {
+            Console.Write("Enter session index: ");
+            string? input = Console.ReadLine();
+
+            if (!int.TryParse(input, out int index))
+            {
+                Console.WriteLine("Invalid index format.");
+                return;
+            }
+
+            try
+            {
+                Console.WriteLine($"Session: {names[index]}");
+                DisplaySessionDetails(index, names, dates, durations);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.WriteLine("The selected session index is out of range.");
+            }
+        }
 
 
 
