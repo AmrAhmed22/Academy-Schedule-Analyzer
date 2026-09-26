@@ -57,7 +57,7 @@ namespace Academy_Schedule_Analyzer
 
 
         // Part 3: Search for a session
-      
+
 
         // return the index of the found session if we need it in the future.
         private static int SearchSession(string[] names, DateTime[] dates, int[] durations, string sessionName)
@@ -79,7 +79,7 @@ namespace Academy_Schedule_Analyzer
 
 
         // Part 4: Array methods practice
-       
+
 
         //4.1
         private static void SortSessionNames(string[] names)
@@ -118,7 +118,7 @@ namespace Academy_Schedule_Analyzer
         //4.4
         private static void CheckSessionExists(string[] names, string sessionName)
         {
-            bool exists = Array.Exists(names, n=>n == sessionName);
+            bool exists = Array.Exists(names, n => n == sessionName);
             Console.WriteLine(exists ? "Session exists." : "Session does not exist.");
         }
 
@@ -424,7 +424,7 @@ namespace Academy_Schedule_Analyzer
 
 
 
-            private static void ShowPastAndUpcomingSessions(string[] names, DateTime[] dates)
+        private static void ShowPastAndUpcomingSessions(string[] names, DateTime[] dates)
         {
             DateTime now = DateTime.Now;
 
@@ -499,7 +499,26 @@ namespace Academy_Schedule_Analyzer
 
 
 
+        // Part 15: reads a menu option
 
+        private static int ReadMenuOption()
+        {
+            while (true)
+            {
+                Console.Write("Choose an option: ");
+                string? input = Console.ReadLine();
+
+                try
+                {
+                    int option = int.Parse(input ?? string.Empty);
+                    return option;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid menu option. Enter a number.");
+                }
+            }
+        }
 
 
 
